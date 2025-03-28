@@ -8,6 +8,7 @@
     "bytes": "^3.1.2",
     "call-bind-apply-helpers": "^1.0.2",
     "content-type": "^1.0.5",
+    "cors": "^2.8.5",
     "depd": "^2.0.0",
     "destroy": "^1.2.0",
     "dotenv": "^16.4.7",
@@ -37,6 +38,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
