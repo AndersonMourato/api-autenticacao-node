@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const sequelize = require('./config/database');
 const cors = require('cors');
 
 require('dotenv').config();
@@ -16,14 +16,14 @@ app.use('/auth', authRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Conectado ao MongoDB');
-}).catch((err) => {
-    console.error('Erro ao conectar ao MongoDB', err);
-});
+sequelize.sync()
+    .then(() => {
+        console.log('Sincronizado com o banco de dados MySQL');
+    })
+    .catch(err => {
+        console.error('Erro ao sincronizar com o banco de dados MySQL', err);
+    });
+
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
