@@ -2,7 +2,7 @@ const express = require('express');
 const sequelize = require('./config/database');
 const cors = require('cors');
 
-//require('dotenv').config();
+require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
 const { swaggerUi, specs } = require('./swagger');
